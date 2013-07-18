@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Com.Dao.ExtendControls.ExTextAuto"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ex="clr-namespace:Com.Dao.ExtendControls"
+             Focusable="True" IsTabStop="False">
+    <Grid x:Name="grid">
+        <ex:ExTextBox x:Name="TargetControl" GoNext="False" Margin="-1" />
+        <Popup x:Name="popup"
+               Placement="Bottom" 
+               PopupAnimation="Slide" Width="{Binding ElementName=TargetControl, Path=ActualWidth}"
+               PlacementTarget="{Binding ElementName=TargetControl}">
+            <ListBox x:Name="listBox" 
+                     ItemsSource="{Binding Path=DataItems}" 
+                     SelectedValuePath="Key" 
+                     DisplayMemberPath="Value" 
+                     SelectedItem="{Binding Path=SelectedListBoxItem}"
+                     SelectedValue="{Binding Path=SelectedListBoxValue}" 
+                     SelectedIndex="{Binding Path=SelectedListBoxIndex}" >
+                <ListBox.Resources>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Resources>
+
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#FF3295D3"/>
+
+                        </Style.Resources>
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
+        </Popup>
+    </Grid>
+</UserControl>

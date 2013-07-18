@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="WpfApplication1.Bus.Zhidan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ex="clr-namespace:Com.Dao.ExtendControls;assembly=Com.Dao.ExtendControls"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid Background="Moccasin">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="58"/>
+            <ColumnDefinition Width="125"/>
+            <ColumnDefinition Width="69"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="69"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="58"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="69"/>
+            <ColumnDefinition Width="100*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Height="22" HorizontalAlignment="Right" Content="工作号" Foreground="Indigo" FontWeight="Bold" />
+        <ex:ExTextBox Grid.Row="0" Grid.Column="1" Height="22" />
+        <Label Grid.Row="0" Grid.Column="2" Height="22" HorizontalAlignment="Right" Content="客户" />
+        <ex:ExTextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Height="22" />
+        <ex:ExTextBox Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Height="22" BorderThickness="0,1,1,1" />
+        <Label Grid.Row="0" Grid.Column="7" Height="22" HorizontalAlignment="Right" Content="联系人" />
+        <ex:ExTextBox Grid.Row="0" Grid.Column="8" Height="22" />
+        <Label Grid.Row="0" Grid.Column="9" Height="22" HorizontalAlignment="Right" Content="跟踪条码号" />
+        <ex:ExTextBox Grid.Row="0" Grid.Column="10" Height="22" />
+
+
+        <Label Grid.Row="1" Grid.Column="0" Height="22" HorizontalAlignment="Right" Content="自编号" />
+        <ex:ExTextBox Grid.Row="1" Grid.Column="1" Height="22" VerticalContentAlignment="Center" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="1" Grid.Column="2" Height="22" HorizontalAlignment="Right" Content="港建费客户" />
+        <ex:ExTextBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Height="22" BorderThickness="1,0,1,1"/>
+        <Label Grid.Row="1" Grid.Column="5" Height="22" HorizontalAlignment="Right" Content="保安费客户" />
+        <ex:ExTextBox Grid.Row="1" Grid.Column="6" Height="22" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="1" Grid.Column="7" Height="22" HorizontalAlignment="Right" Content="业务号" VerticalAlignment="Bottom" />
+        <ex:ExTextBox Grid.Row="1" Grid.Column="8" Height="22" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="1" Grid.Column="9" Height="22" HorizontalAlignment="Right" Content="报废报关单" />
+        <ex:ExTextBox Grid.Row="1" Grid.Column="10" Height="22" BorderThickness="1,0,1,1" />
+
+        <Label Grid.Row="2" Grid.Column="0" Height="22" HorizontalAlignment="Right" Content="船公司" />
+        <ex:ExTextAuto x:Name="autoTxtBox" Grid.Column="1" Grid.Row="2" SelectedValuePath="Ucode" DisplayMemberPath="Namec"
+                                        DataProvider="{Binding Path=Countries}" BindValue="{Binding Path=Obj.CountryNo, Mode=TwoWay}" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="2" Grid.Column="2" Height="22" HorizontalAlignment="Right" Content="船名/航次" />
+        <ex:ExTextBox Grid.Row="2" Grid.Column="3" Height="22" BorderThickness="1,0,1,1" />
+        <ex:ExTextBox Grid.Row="2" Grid.Column="4" Height="22" BorderThickness="0,0,1,1" />
+        <Label Grid.Row="2" Grid.Column="5" Height="22" HorizontalAlignment="Right" Content="码头" />
+        <ex:ExTextBox Grid.Row="2" Grid.Column="6" Height="22" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="2" Grid.Column="7" Height="22" HorizontalAlignment="Right" Content="船代" />
+        <ex:ExTextBox Grid.Row="2" Grid.Column="8" Height="22" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="2" Grid.Column="9" Height="22" HorizontalAlignment="Right" Content="订舱号" />
+        <ex:ExTextBox Grid.Row="2" Grid.Column="10" Height="22" BorderThickness="1,0,1,1" />
+
+        <Label Grid.Row="3" Grid.Column="0" Height="22" HorizontalAlignment="Right" Content="委托书号" />
+        <ex:ExTextBox Grid.Row="3" Grid.Column="1" Height="22" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="3" Grid.Column="2" Height="22" HorizontalAlignment="Right" Content="截关日期" />
+        <ex:ExDatePicker Grid.Row="3" Grid.Column="3" Height="22" IsTodayHighlighted="True" SelectedDate="{Binding Path=Obj.DrawbackDt,Mode=TwoWay}" 
+                    SelectedDateFormat="Short" BorderThickness="1,0,1,1" />
+        <ex:ExTextBox Grid.Row="3" Grid.Column="4" Height="22" BorderThickness="0,0,1,1" />
+        <Label Grid.Row="3" Grid.Column="5" Height="22" HorizontalAlignment="Right" Content="证明联日期" />
+        <ex:ExDatePicker Grid.Row="3" Grid.Column="6" Height="22" IsTodayHighlighted="True" SelectedDate="{Binding Path=Obj.DrawbackDt,Mode=TwoWay}" 
+                    SelectedDateFormat="Short" BorderThickness="1,0,1,1" /> 
+        <Label Grid.Row="3" Grid.Column="7" Height="22" HorizontalAlignment="Right" Content="到期日期" VerticalAlignment="Top" />
+        <ex:ExDatePicker Grid.Row="3" Grid.Column="8" Height="22" IsTodayHighlighted="True" SelectedDate="{Binding Path=Obj.DrawbackDt,Mode=TwoWay}" 
+                    SelectedDateFormat="Short" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="3" Grid.Column="9" Height="22" HorizontalAlignment="Right" Content="到港时间" />
+        <ex:ExTextBox Grid.Row="3" Grid.Column="10" Height="22" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="4" Grid.Column="0" Height="22" HorizontalAlignment="Right" Content="状态" />
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6" Orientation="Horizontal" Margin="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Left" >
+            <ex:ExCheckBox Content="放行" Margin="5,0,5,0" />
+            <ex:ExCheckBox Content="EDI" Margin="5,0,5,0"/>
+            <ex:ExComboBox Padding="5,0" Height="Auto" ItemsSource="{Binding Path=Zxs}" 
+                           SelectedValuePath="Ucode" DisplayMemberPath="Namec" BindValue="{Binding Path=Obj.ZxNo, Mode=TwoWay}"
+                           />
+            <ex:ExCheckBox Content="改船" Margin="5,0,5,0"/>
+            <ex:ExCheckBox Content="退场" Margin="5,0,5,0"/>
+            <ex:ExCheckBox Content="交单" Margin="5,0,5,0" BindValue="{Binding Path=Obj.CompleteYn, Mode=TwoWay}"/>
+            <ex:ExCheckBox Content="打核销联" Margin="5,0,5,0"/>
+            <ex:ExCheckBox Content="通关无纸" Margin="5,0,5,0"/>
+            <ex:ExCheckBox Content="现场递单" Margin="5,0,5,0"/>
+        </StackPanel>
+        <Label Grid.Row="4" Grid.Column="7" Height="22" HorizontalAlignment="Right" Content="通关状态" />
+        <ex:ExTextBox Grid.Row="4" Grid.Column="8" Height="22" BorderThickness="1,0,1,1" />
+        <Label Grid.Row="4" Grid.Column="9" Height="22" HorizontalAlignment="Right" Content="通关单状态" />
+        <ex:ExTextBox Grid.Row="4" Grid.Column="10" Height="22" GoNext="True" Text="{Binding Path=Obj.ZxNo}" BorderThickness="1,0,1,1" />
+        <Canvas Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="11" Background="DarkRed"/>
+        <Grid Grid.Row="6" Grid.Column="0" ColumnSpan="11" Background="Lavender">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+<!--            <dxe:DateEdit Width="120" Height="22" EditValue="{Binding Path=Obj.DrawbackDt, Mode=TwoWay}" -->
+<!--                          MaskUseAsDisplayFormat="True" Mask="yyyy-MM-dd"/>-->
+        </Grid>
+    </Grid>
+</UserControl>

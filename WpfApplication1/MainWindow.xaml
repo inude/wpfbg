@@ -1,0 +1,45 @@
+﻿<Window xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:bus="clr-namespace:WpfApplication1.Bus"
+        xmlns:ex="clr-namespace:Com.Dao.ExtendControls;assembly=Com.Dao.ExtendControls"
+        x:Name="mainWindow" FontSize="12"
+        Title="Hello,World" Height="700" Width="1020" MinWidth="1000" MinHeight="600"
+        WindowStartupLocation="CenterScreen">
+
+    <DockPanel LastChildFill="True">
+        <Menu Height="24" Name="MainMenu" Background="CadetBlue" DockPanel.Dock="Top"/>
+        <StatusBar Height="23" Name="MainStatusBar" DockPanel.Dock="Bottom"/>
+        <TabControl Name="MainTab" >
+            <ex:CloseableTabItem Header="制单操作" Name="MainPage1">
+                <bus:Zhidan />
+            </ex:CloseableTabItem>
+            <ex:CloseableTabItem Header="主页" Name="MainPage">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Hello World" x:Name="helloBt"></Button>
+                    <TextBox x:Name="helloText" Text="Hello" Width="300"/>
+                    <StackPanel Orientation="Vertical" Width="400">
+                        <TextBox Text="{Binding ElementName= slider, Path=Value}"/>
+                        <Slider x:Name="slider" Maximum="100" Minimum="0" TickFrequency="3" TickPlacement="Both" IsSnapToTickEnabled="True" />
+                        <TextBox x:Name="country"/>
+                        <TextBox x:Name="province"/>
+                        <TextBox x:Name="city"/>
+                        <Canvas Background="DarkRed" Height="3" Margin="0,3"/>
+                        <TextBox x:Name="a0"/>
+                        <TextBox x:Name="a1"/>
+                        <TextBox x:Name="r0"/>
+                        <ex:ExTextAuto x:Name="CountryTxtAuto" DataProvider="{Binding ElementName=mainWindow, Path=Countries}" SelectedValuePath="Ucode" DisplayMemberPath="Namec" BindValue="{Binding Path=CountryNo, Mode=TwoWay}"
+                                       SelectionChanged="CountryTxtAuto_OnSelectionChanged" />
+                        <Canvas Background="DarkRed" Height="3" Margin="0,3"/>
+                        <TextBox x:Name="F" Text="{Binding Path=CountryNo}"/>
+                        <Canvas Background="DarkRed" Height="3" Margin="0,3"/>
+                        <ex:ExTextLookup x:Name="CountryTxtLookup" SelectedValuePath="Ucode" DisplayMemberPath="Namec" BindValue="{Binding Path=CountryNo, Mode=TwoWay}"
+                                       SelectionChanged="CountryTxtAuto_OnSelectionChanged" Search="CountryTxtLookup_OnSearch"    />
+                        <Canvas Background="DarkRed" Height="3" Margin="0,3"/>
+                        
+                    </StackPanel>
+                </StackPanel>
+            </ex:CloseableTabItem>
+            
+        </TabControl>
+    </DockPanel>
+</Window>
